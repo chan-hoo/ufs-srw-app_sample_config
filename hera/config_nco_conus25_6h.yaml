@@ -1,0 +1,52 @@
+metadata:
+  description: config for CONUS 25km, NCO test, 6hr forecast
+user:
+  RUN_ENVIR: nco
+  MACHINE: hera
+  ACCOUNT: fv3-cam
+platform:
+  DOMAIN_PREGEN_BASEDIR: /scratch2/BMC/det/UFS_SRW_App/develop/FV3LAM_pregen
+workflow:
+  USE_CRON_TO_RELAUNCH: true
+  CRON_RELAUNCH_INTVL_MNTS: 3
+  EXPT_SUBDIR: test_nco_6h
+  NET: rrfs
+  model_ver: v1.0
+  RUN: rrfs_test
+  COMIN: /scratch1/NCEPDEV/rstprod/com/gfs/prod
+  STMP: /scratch2/NCEPDEV/stmp3/Chan-hoo.Jeon/NCO_OUTPUT/stmp
+  PTMP: /scratch2/NCEPDEV/stmp3/Chan-hoo.Jeon/NCO_OUTPUT/ptmp  
+  CCPP_PHYS_SUITE: FV3_GFS_v16
+  DATE_FIRST_CYCL: '20220907'
+  DATE_LAST_CYCL: '20220907'
+  CYCL_HRS:
+    - 00
+  FCST_LEN_HRS: 6
+  PREEXISTING_DIR_METHOD: rename
+  VERBOSE: true
+  COMPILER: intel
+workflow_switches:
+  RUN_TASK_GET_OBS_CCPA: false
+  RUN_TASK_GET_OBS_MRMS: false
+  RUN_TASK_GET_OBS_NDAS: false
+  RUN_TASK_VX_GRIDSTAT: false
+  RUN_TASK_VX_POINTSTAT: false
+  RUN_TASK_VX_ENSGRID: false
+  RUN_TASK_VX_ENSPOINT: false
+task_get_extrn_ics:
+  EXTRN_MDL_NAME_ICS: FV3GFS
+  FV3GFS_FILE_FMT_ICS: grib2
+task_get_extrn_lbcs:
+  EXTRN_MDL_NAME_LBCS: FV3GFS
+  LBC_SPEC_INTVL_HRS: 3
+  FV3GFS_FILE_FMT_LBCS: grib2
+task_run_fcst:
+  WTIME_RUN_FCST: 00:30:00
+  WRITE_DOPOST: true
+  QUILTING: true
+  PREDEF_GRID_NAME: RRFS_CONUS_25km
+task_run_post:
+  POST_OUTPUT_DOMAIN_NAME: conus_25km
+global:
+  DO_ENSEMBLE: false
+  NUM_ENS_MEMBERS: 2
