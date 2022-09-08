@@ -1,18 +1,14 @@
 metadata:
-  description: >-
-    config for CONUS 25km, GST test, 6hr forecast
+  description: config for CONUS 25km, GST test, 6hr forecast
 user:
   RUN_ENVIR: community
   MACHINE: hera
   ACCOUNT: fv3-cam
 platform:
-  MODEL: FV3_GFS_v16_CONUS_25km
-  MET_INSTALL_DIR: path/to/MET
-  METPLUS_PATH: path/to/METPlus
-  CCPA_OBS_DIR: /path/to/processed/CCPA/data
-  MRMS_OBS_DIR: /path/to/processed/MRMS/data
-  NDAS_OBS_DIR: /path/to/processed/NDAS/data
+  BUILD_MOD_FN: build_hera_intel
 workflow:
+  USE_CRON_TO_RELAUNCH: true
+  CRON_RELAUNCH_INTVL_MNTS: 3
   EXPT_SUBDIR: test_GST_6h
   CCPP_PHYS_SUITE: FV3_GFS_v16
   DATE_FIRST_CYCL: '20190615'
@@ -37,10 +33,18 @@ workflow_switches:
 task_get_extrn_ics:
   EXTRN_MDL_NAME_ICS: FV3GFS
   FV3GFS_FILE_FMT_ICS: grib2
+  USE_USER_STAGED_EXTRN_FILES: true
+  EXTRN_MDL_SOURCE_BASEDIR_ICS: /scratch2/BMC/det/UFS_SRW_App/develop/input_model_data/FV3GFS/grib2/${yyyymmddhh}
+  EXTRN_MDL_FILES_ICS: []
+  EXTRN_MDL_DATA_STORES: disk
 task_get_extrn_lbcs:
   EXTRN_MDL_NAME_LBCS: FV3GFS
   LBC_SPEC_INTVL_HRS: 6
   FV3GFS_FILE_FMT_LBCS: grib2
+  USE_USER_STAGED_EXTRN_FILES: true
+  EXTRN_MDL_SOURCE_BASEDIR_LBCS: /scratch2/BMC/det/UFS_SRW_App/develop/input_model_data/FV3GFS/grib2/${yyyymmddhh}
+  EXTRN_MDL_FILES_LBCS: []
+  EXTRN_MDL_DATA_STORES: disk
 task_run_fcst:
   WTIME_RUN_FCST: 00:30:00
   QUILTING: true
