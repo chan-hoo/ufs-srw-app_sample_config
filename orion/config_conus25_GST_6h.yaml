@@ -46,7 +46,7 @@ task_get_extrn_lbcs:
   EXTRN_MDL_FILES_LBCS: []
   EXTRN_MDL_DATA_STORES: disk
 task_run_fcst:
-  WTIME_RUN_FCST: 00:30:00
+  WTIME_RUN_FCST: 00:40:00
   QUILTING: true
   PREDEF_GRID_NAME: RRFS_CONUS_25km
 global:
