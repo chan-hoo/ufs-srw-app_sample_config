@@ -10,6 +10,7 @@ workflow:
   USE_CRON_TO_RELAUNCH: true
   CRON_RELAUNCH_INTVL_MNTS: 3
   EXPT_SUBDIR: test_nco_6h
+  EXEC_SUBDIR: exec
   NET: rrfs
   model_ver: v1.0
   RUN: rrfs_test
