@@ -11,21 +11,21 @@ workflow:
   CRON_RELAUNCH_INTVL_MNTS: 3
   EXPT_SUBDIR: test_nco_6h
   EXEC_SUBDIR: exec
-  NET: rrfs
-  model_ver: v1.0
-  RUN: rrfs_test
-  COMIN: /scratch1/NCEPDEV/rstprod/com/gfs/prod
-  STMP: /scratch2/NCEPDEV/stmp3/Chan-hoo.Jeon/NCO_OUTPUT/stmp
-  PTMP: /scratch2/NCEPDEV/stmp3/Chan-hoo.Jeon/NCO_OUTPUT/ptmp  
   CCPP_PHYS_SUITE: FV3_GFS_v16
-  DATE_FIRST_CYCL: '20220907'
-  DATE_LAST_CYCL: '20220907'
+  DATE_FIRST_CYCL: '20220920'
+  DATE_LAST_CYCL: '20220920'
   CYCL_HRS:
     - 00
   FCST_LEN_HRS: 6
   PREEXISTING_DIR_METHOD: rename
   VERBOSE: true
   COMPILER: intel
+nco:
+  NET: rrfs
+  model_ver: v1.0
+  RUN: rrfs_test
+  COMIN: /scratch1/NCEPDEV/rstprod/com/gfs/prod
+  OPSROOT: /scratch2/NCEPDEV/stmp3/Chan-hoo.Jeon/NCO_OUTPUT
 workflow_switches:
   RUN_TASK_GET_OBS_CCPA: false
   RUN_TASK_GET_OBS_MRMS: false
