@@ -41,6 +41,7 @@ task_run_fcst:
   WTIME_RUN_FCST: 00:30:00
   QUILTING: true
   PREDEF_GRID_NAME: RRFS_CONUS_25km
+  PPN_RUN_FCST: 62
 global:
   DO_ENSEMBLE: false
   NUM_ENS_MEMBERS: 2
