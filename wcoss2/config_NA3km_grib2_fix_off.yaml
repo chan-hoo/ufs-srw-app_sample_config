@@ -9,7 +9,7 @@ platform:
 workflow:
   USE_CRON_TO_RELAUNCH: true
   CRON_RELAUNCH_INTVL_MNTS: 3
-  EXPT_SUBDIR: test_NA3km_6h
+  EXPT_SUBDIR: test_NA3km_grib2
   CCPP_PHYS_SUITE: FV3_GFS_v15_thompson_mynn_lam3km
   DATE_FIRST_CYCL: '20220810'
   DATE_LAST_CYCL: '20220810'
@@ -40,7 +40,6 @@ task_get_extrn_lbcs:
 task_make_grid:
   GRID_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen
 task_make_orog:
-  WTIME_MAKE_OROG: 01:00:00
   OROG_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen
 task_make_sfc_climo:
   SFC_CLIMO_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen
