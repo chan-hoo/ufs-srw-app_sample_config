@@ -37,13 +37,8 @@ task_get_extrn_lbcs:
   EXTRN_MDL_NAME_LBCS: FV3GFS
   FV3GFS_FILE_FMT_LBCS: netcdf
   LBC_SPEC_INTVL_HRS: 6
-  #task_make_grid:
-  #  GRID_DIR:
 task_make_orog:
   WTIME_MAKE_OROG: 01:00:00
-  #OROG_DIR:
-  #task_make_sfc_climo:
-  #SFC_CLIMO_DIR:
 task_make_ics:
   NNODES_MAKE_ICS: 12
   PPN_MAKE_ICS: 4
