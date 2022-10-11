@@ -38,11 +38,11 @@ task_get_extrn_lbcs:
   FV3GFS_FILE_FMT_LBCS: grib2
   LBC_SPEC_INTVL_HRS: 6
 task_make_grid:
-  GRID_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen
+  GRID_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen/RRFS_NA_3km
 task_make_orog:
-  OROG_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen
+  OROG_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen/RRFS_NA_3km
 task_make_sfc_climo:
-  SFC_CLIMO_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen
+  SFC_CLIMO_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen/RRFS_NA_3km
 task_make_ics:
   NNODES_MAKE_ICS: 12
   PPN_MAKE_ICS: 4
