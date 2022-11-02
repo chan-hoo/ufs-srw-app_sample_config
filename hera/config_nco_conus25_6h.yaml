@@ -12,10 +12,8 @@ workflow:
   EXPT_SUBDIR: test_nco_6h
   EXEC_SUBDIR: exec
   CCPP_PHYS_SUITE: FV3_GFS_v16
-  DATE_FIRST_CYCL: '20220920'
-  DATE_LAST_CYCL: '20220920'
-  CYCL_HRS:
-    - 00
+  DATE_FIRST_CYCL: '2022092000'
+  DATE_LAST_CYCL: '2022092000'
   FCST_LEN_HRS: 6
   PREEXISTING_DIR_METHOD: rename
   VERBOSE: true
@@ -24,16 +22,19 @@ nco:
   NET: rrfs
   model_ver: v1.0
   RUN: rrfs_test
-  COMIN: /scratch1/NCEPDEV/rstprod/com/gfs/prod
   OPSROOT: /scratch2/NCEPDEV/stmp3/Chan-hoo.Jeon/NCO_OUTPUT
 workflow_switches:
-  RUN_TASK_GET_OBS_CCPA: false
-  RUN_TASK_GET_OBS_MRMS: false
-  RUN_TASK_GET_OBS_NDAS: false
-  RUN_TASK_VX_GRIDSTAT: false
-  RUN_TASK_VX_POINTSTAT: false
-  RUN_TASK_VX_ENSGRID: false
-  RUN_TASK_VX_ENSPOINT: false
+  RUN_TASK_MAKE_GRID: false
+  RUN_TASK_MAKE_OROG: false
+  RUN_TASK_MAKE_SFC_CLIMO: false
+task_make_grid:
+  MAXTRIES_MAKE_GRID: 2
+  GRID_DIR: /scratch2/BMC/det/UFS_SRW_App/develop/FV3LAM_pregen/RRFS_CONUS_25km
+task_make_orog:
+  MAXTRIES_MAKE_OROG: 2
+  OROG_DIR: /scratch2/BMC/det/UFS_SRW_App/develop/FV3LAM_pregen/RRFS_CONUS_25km
+task_make_sfc_climo:
+  MAXTRIES_MAKE_SFC_CLIMO: 2
 task_get_extrn_ics:
   EXTRN_MDL_NAME_ICS: FV3GFS
   FV3GFS_FILE_FMT_ICS: grib2
@@ -43,7 +44,7 @@ task_get_extrn_lbcs:
   FV3GFS_FILE_FMT_LBCS: grib2
 task_run_fcst:
   WTIME_RUN_FCST: 00:30:00
-  WRITE_DOPOST: true
+  WRITE_DOPOST: false
   QUILTING: true
   PREDEF_GRID_NAME: RRFS_CONUS_25km
 task_run_post:
