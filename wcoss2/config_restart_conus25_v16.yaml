@@ -2,14 +2,12 @@ metadata:
   description: This script is to test the restart capability.
 user:
   RUN_ENVIR: community
-  MACHINE: HERA
-  ACCOUNT: naqfc
-platform:
-  BUILD_MOD_FN: build_hera_intel
+  MACHINE: WCOSS2
+  ACCOUNT: RRFS-DEV
 workflow:
   USE_CRON_TO_RELAUNCH: true
   CRON_RELAUNCH_INTVL_MNTS: 3
-  EXPT_SUBDIR: test_restart
+  EXPT_SUBDIR: test_restart_v16
   CCPP_PHYS_SUITE: FV3_GFS_v16
   PREDEF_GRID_NAME: RRFS_CONUS_25km
   DATE_FIRST_CYCL: '2022070100'
@@ -41,7 +39,7 @@ task_make_lbcs:
 task_run_fcst:
   WTIME_RUN_FCST: 00:30:00
   MAXTRIES_RUN_FCST: 1
-  RESTART_INTERVAL: 2 3 
+  RESTART_INTERVAL: 2 3
   DO_FCST_RESTART: true
 task_run_post:
   MAXTRIES_RUN_POST: 2
