@@ -41,7 +41,7 @@ task_make_lbcs:
 task_run_fcst:
   WTIME_RUN_FCST: 01:00:00
   MAXTRIES_RUN_FCST: 1
-  RESTART_INTERVAL: 2 3
+  RESTART_INTERVAL: 3 6
   DO_FCST_RESTART: true
 task_run_post:
   MAXTRIES_RUN_POST: 2
