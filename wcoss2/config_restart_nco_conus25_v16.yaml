@@ -1,0 +1,61 @@
+metadata:
+  description: This script is to test the restart capability for nco mode.
+user:
+  RUN_ENVIR: nco
+  MACHINE: WCOSS2
+  ACCOUNT: RRFS-DEV
+workflow:
+  USE_CRON_TO_RELAUNCH: true
+  CRON_RELAUNCH_INTVL_MNTS: 3
+  EXPT_SUBDIR: test_restart_nco
+  CCPP_PHYS_SUITE: FV3_GFS_v16
+  PREDEF_GRID_NAME: RRFS_CONUS_25km
+  DATE_FIRST_CYCL: '2022070100'
+  DATE_LAST_CYCL: '2022070100'
+  FCST_LEN_HRS: 6
+  PREEXISTING_DIR_METHOD: rename
+  VERBOSE: false
+  DEBUG: false
+  COMPILER: intel
+nco:
+  envir: prod
+  NET: test
+  model_ver: v1.0
+  RUN: test_nco_restart
+#  OPSROOT: /lfs/h2/emc/stmp/chan-hoo.jeon/NCO_OUTPUT_aqm
+workflow_switches:
+  RUN_TASK_MAKE_GRID: false
+  RUN_TASK_MAKE_OROG: false
+  RUN_TASK_MAKE_SFC_CLIMO: false
+task_make_grid:
+  GRID_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen/RRFS_CONUS_25km
+task_make_orog:
+  OROG_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen/RRFS_CONUS_25km
+task_make_sfc_climo:
+  SFC_CLIMO_DIR: /lfs/h2/emc/lam/noscrub/UFS_SRW_App/develop/FV3LAM_pregen/RRFS_CONUS_25km
+task_make_grid:
+  MAXTRIES_MAKE_GRID: 2
+task_make_orog:
+  MAXTRIES_MAKE_OROG: 2
+task_make_sfc_climo:
+  MAXTRIES_MAKE_SFC_CLIMO: 2
+task_get_extrn_ics:
+  MAXTRIES_GET_EXTRN_ICS: 1
+  EXTRN_MDL_NAME_ICS: FV3GFS
+  FV3GFS_FILE_FMT_ICS: netcdf
+task_get_extrn_lbcs:
+  MAXTRIES_GET_EXTRN_LBCS: 1
+  EXTRN_MDL_NAME_LBCS: FV3GFS
+  FV3GFS_FILE_FMT_LBCS: netcdf
+  LBC_SPEC_INTVL_HRS: 3
+task_make_ics:
+  MAXTRIES_MAKE_ICS: 2
+task_make_lbcs:
+  MAXTRIES_MAKE_LBCS: 2
+task_run_fcst:
+  WTIME_RUN_FCST: 00:30:00
+  MAXTRIES_RUN_FCST: 1
+  RESTART_INTERVAL: 3
+  DO_FCST_RESTART: true
+task_run_post:
+  MAXTRIES_RUN_POST: 2
