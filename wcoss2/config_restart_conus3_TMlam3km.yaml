@@ -17,29 +17,13 @@ workflow:
   VERBOSE: false
   DEBUG: false
   COMPILER: intel
-task_make_grid:
-  MAXTRIES_MAKE_GRID: 2
-task_make_orog:
-  MAXTRIES_MAKE_OROG: 2
-task_make_sfc_climo:
-  MAXTRIES_MAKE_SFC_CLIMO: 2
 task_get_extrn_ics:
-  MAXTRIES_GET_EXTRN_ICS: 1
   EXTRN_MDL_NAME_ICS: FV3GFS
   FV3GFS_FILE_FMT_ICS: netcdf
 task_get_extrn_lbcs:
-  MAXTRIES_GET_EXTRN_LBCS: 1
   EXTRN_MDL_NAME_LBCS: FV3GFS
   FV3GFS_FILE_FMT_LBCS: netcdf
   LBC_SPEC_INTVL_HRS: 3
-task_make_ics:
-  MAXTRIES_MAKE_ICS: 2
-task_make_lbcs:
-  MAXTRIES_MAKE_LBCS: 2
 task_run_fcst:
-  WTIME_RUN_FCST: 01:00:00
-  MAXTRIES_RUN_FCST: 2
   RESTART_INTERVAL: 3
   DO_FCST_RESTART: true
-task_run_post:
-  MAXTRIES_RUN_POST: 2
